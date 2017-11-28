@@ -1,0 +1,5 @@
+<p>Adding car form</p>
+<hr>
+<app-add-car (addCarAction) = "updateCarList($event)" ></app-add-car>
+<hr>
+<app-car *ngFor="let car of cars" [carItem] = "car"></app-car>
