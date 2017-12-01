@@ -1,4 +1,5 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {CarsService} from '../services/cars.service';
 
 @Component({
   selector: 'app-add-car',
@@ -6,21 +7,17 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
   styleUrls: ['./add-car.component.css']
 })
 export class AddCarComponent implements OnInit {
-  @Output() addCarAction = new EventEmitter<{name: string, year: number, isSold: boolean}>();
+
   @ViewChild('carYearInput') carYearInput: ElementRef;
 
-  constructor() { }
+  constructor(private carsService: CarsService) { }
 
   ngOnInit() {
   }
 
-  addCar(carNameEl) {
-    this.addCarAction.emit({
-      name: carNameEl.value,
-      year: +this.carYearInput.nativeElement.value,
-      isSold: false
-    });
-    carNameEl.value = '';
+  addCar(carNameInput) {
+    this.carsService.addCar(carNameInput.value, +this.carYearInput.nativeElement.value);
+    carNameInput.value = '';
     this.carYearInput.nativeElement.value = 0;
   }
 }

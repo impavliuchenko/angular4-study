@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { CarComponent } from './car/car.component';
 import { AddCarComponent } from './add-car/add-car.component';
-import {BackgroundDirective} from "./directives/background.directive";
+import {BackgroundDirective} from './directives/background.directive';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
+import {CarsService} from './services/cars.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CarFilterPipe } from './pipes/car-filter.pipe';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CarsService],
   bootstrap: [CarsComponent]
 })
 export class AppModule { }

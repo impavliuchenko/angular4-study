@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CarsService} from '../services/cars.service';
 
 @Component({
   selector: 'app-cars',
@@ -8,24 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class CarsComponent implements OnInit {
 
   searchCar = '';
+  cars = [];
 
-  cars: [{name: string, year: number, isSold: boolean}] = [{
-    name: 'Ford',
-    year: 1996,
-    isSold: true
-    }, {
-    name: 'BMW',
-    year: 2005,
-    isSold: false
-  }
-  ];
-
-  constructor() { }
+  constructor(private carsService: CarsService) { }
 
   ngOnInit() {
-  }
-
-  updateCarList(car: {name: string, year: number, isSold: boolean}) {
-    this.cars.push(car);
+    this.cars = this.carsService.cars;
   }
 }
