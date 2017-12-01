@@ -17,13 +17,14 @@ export class FormReactiveComponent implements OnInit {
   }];
 
   form: FormGroup;
+  charsCount = 4;
 
   constructor() { }
 
   ngOnInit() {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.email, Validators.required]),
-      pass: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.email, Validators.required], this.checkForEmail.bind(this)),
+      pass: new FormControl('', [Validators.required, this.checkForLength.bind(this)]),
       country: new FormControl('ru'),
       answer: new FormControl('no')
     });
@@ -31,6 +32,27 @@ export class FormReactiveComponent implements OnInit {
 
   onSubmit() {
     console.log('Submited!', this.form);
+  }
+
+  checkForLength(control: FormControl) {
+    if (control.value.length <= this.charsCount) {
+      return {'length': true};
+    }
+    return null;
+  }
+
+  checkForEmail(control: FormControl): Promise <any> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'test@gmail.com') {
+          resolve({
+            'emailIsUsed': true
+          });
+        } else {
+          resolve(null);
+        }
+      }, 3000);
+    });
   }
 
 }
