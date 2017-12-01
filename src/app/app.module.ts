@@ -9,6 +9,7 @@ import { AddCarComponent } from './add-car/add-car.component';
 import {BackgroundDirective} from './directives/background.directive';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
 import {CarsService} from './services/cars.service';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import {CarsService} from './services/cars.service';
     CarComponent,
     AddCarComponent,
     BackgroundDirective,
-    CarFilterPipe
+    CarFilterPipe,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [CarsService],
-  bootstrap: [CarsComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
