@@ -7,20 +7,25 @@ import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from 
 })
 export class CarComponent implements AfterViewInit, OnInit {
 
-  @Input() carItem: {name: string, year: number};
+  @Input() carItem: {name: string, year: number, isSold: boolean};
   @ContentChild('carHeading') carHeading: ElementRef;
-  currentCar: {name: string, year: number};
 
   ngAfterViewInit() {
     console.log(this.carHeading);
   }
 
   ngOnInit() {
-    this.currentCar = this.carItem;
   }
 
-  onClick() {
-    this.currentCar = this.carItem;
-    console.log(this.currentCar);
+  getClass() {
+    return {
+      'list-group-item-success': !this.carItem.isSold,
+      'list-group-item-danger': this.carItem.isSold,
+      'list-group-item': true
+    };
+  }
+
+  onAction(type: string) {
+    this.carItem.isSold = type === 'buy' ? true : false;
   }
 }

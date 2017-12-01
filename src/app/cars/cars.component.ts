@@ -9,13 +9,15 @@ export class CarsComponent implements OnInit {
 
   searchCar = '';
 
-  cars: [{name: string, year: number}] = [{
+  cars: [{name: string, year: number, isSold: boolean}] = [{
     name: 'Ford',
-    year: 1996
+    year: 1996,
+    isSold: true
     }, {
     name: 'BMW',
-    year: 2005
-    }
+    year: 2005,
+    isSold: false
+  }
   ];
 
   constructor() { }
@@ -23,7 +25,7 @@ export class CarsComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateCarList(car: {name: string, year: number}) {
+  updateCarList(car: {name: string, year: number, isSold: boolean}) {
     this.cars.push(car);
   }
 }

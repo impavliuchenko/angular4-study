@@ -6,7 +6,7 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
   styleUrls: ['./add-car.component.css']
 })
 export class AddCarComponent implements OnInit {
-  @Output() addCarAction = new EventEmitter<{name: string, year: number}>();
+  @Output() addCarAction = new EventEmitter<{name: string, year: number, isSold: boolean}>();
   @ViewChild('carYearInput') carYearInput: ElementRef;
 
   constructor() { }
@@ -17,9 +17,10 @@ export class AddCarComponent implements OnInit {
   addCar(carNameEl) {
     this.addCarAction.emit({
       name: carNameEl.value,
-      year: +this.carYearInput.nativeElement.value
+      year: +this.carYearInput.nativeElement.value,
+      isSold: false
     });
     carNameEl.value = '';
-    this.carYearInput.nativeElement.value = 2017;
+    this.carYearInput.nativeElement.value = 0;
   }
 }

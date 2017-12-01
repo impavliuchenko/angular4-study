@@ -1,10 +1,18 @@
-<div [appBackground] = "'lightblue'" [defaultColor] = "'transparent'"
-     class="alert alert-info" (click)="onClick()">
-  Car sold
+<div [ngClass] = "getClass()">
+  <h4 #carHeading class="list-group-item-heading">Name: {{carItem.name}}</h4>
+  <p class="list-group-item-text">Year: {{carItem.year}}</p>
+  <div>
+    <button
+      class="btn btn-sm btn-primary"
+      [disabled] = "carItem.isSold"
+      (click)="onAction('buy')">
+      Buy
+    </button>
+    <button
+      class="btn btn-sm btn-default"
+      [disabled] = "!carItem.isSold"
+      (click)="onAction('return')">
+      Return
+    </button>
+  </div>
 </div>
-<div [ngSwitch] = "currentCar.year">
-  <p *ngSwitchCase="2017">Check that you pass th year</p>
-  <p *ngSwitchCase="2018">New car!</p>
-  <p *ngSwitchDefault>All done</p>
-</div>
-<ng-content></ng-content>
