@@ -1,24 +1,24 @@
 import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {Response} from '@angular/http';
 
 @Injectable()
 export class CarsService {
 
-  cars: [{name: string, year: number, isSold: boolean}] = [{
-    name: 'Ford',
-    year: 1996,
-    isSold: true
-  }, {
-    name: 'BMW',
-    year: 2005,
-    isSold: false
+  constructor(private http: Http) { }
+
+  getCars() {
+    return this.http.get('http://localhost:3000/cars')
+      .map((response: Response) => response.json());
   }
-  ];
 
   addCar(carName: string, carYear: number) {
-    this.cars.push({
+    const data = {
       name: carName,
       year: carYear,
       isSold: false
-    });
+    };
+    return this.http.post('http://localhost:3000/cars', data)
+      .map((response: Response) => response.json());
   }
 }

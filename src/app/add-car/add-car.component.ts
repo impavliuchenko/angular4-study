@@ -16,7 +16,10 @@ export class AddCarComponent implements OnInit {
   }
 
   addCar(carNameInput) {
-    this.carsService.addCar(carNameInput.value, +this.carYearInput.nativeElement.value);
+    this.carsService
+      .addCar(carNameInput.value, +this.carYearInput.nativeElement.value)
+      .subscribe((json) => console.log(json));
+
     carNameInput.value = '';
     this.carYearInput.nativeElement.value = 0;
   }
