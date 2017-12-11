@@ -11,6 +11,7 @@ import { CarFilterPipe } from './pipes/car-filter.pipe';
 import {CarsService} from './services/cars.service';
 import { FormComponent } from './form-template-driven/form.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormReactiveComponent } from './form-reactive/form-reactive.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]
