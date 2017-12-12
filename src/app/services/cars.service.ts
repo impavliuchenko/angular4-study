@@ -1,15 +1,22 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
-import {Response} from '@angular/http';
-
+import {Http, Response, Headers} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class CarsService {
 
   constructor(private http: Http) { }
 
   getCars() {
-    return this.http.get('http://localhost:3000/cars')
-      .map((response: Response) => response.json());
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.get('http://localhost:3000/cars', {
+      headers: headers
+    })
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        return Observable.throw('Server error');
+      });
   }
 
   addCar(carName: string, carYear: number) {
