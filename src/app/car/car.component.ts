@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
-import {CarsService} from "../services/cars.service";
+import {CarsService} from '../services/cars.service';
+import {CarsComponent} from '../cars/cars.component';
 
 @Component({
   selector: 'app-car',
@@ -8,7 +9,7 @@ import {CarsService} from "../services/cars.service";
 })
 export class CarComponent implements AfterViewInit, OnInit {
 
-  constructor(private carService: CarsService) { }
+  constructor(private carService: CarsService, private cars: CarsComponent) { }
 
   @Input() carItem: Car;
   @ContentChild('carHeading') carHeading: ElementRef;
@@ -43,6 +44,8 @@ export class CarComponent implements AfterViewInit, OnInit {
 
   deleteCar(car: Car) {
     this.carService.deleteCar(car)
-      .subscribe();
+      .subscribe((data) => {
+        this.cars.cars = this.cars.cars.filter(c => c.id !== car.id);
+      });
   }
 }
