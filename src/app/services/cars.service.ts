@@ -21,4 +21,15 @@ export class CarsService {
     return this.http.post('http://localhost:3000/cars', data)
       .map((response: Response) => response.json());
   }
+
+  changeYear(car: Car, year: number) {
+    car.year = year;
+    return this.http.put(`http://localhost:3000/cars/${car.id}`, car)
+      .map((response: Response) => response.json());
+  }
+
+  deleteCar(car: Car) {
+    return this.http.delete(`http://localhost:3000/cars/${car.id}`)
+      .map((response: Response) => response.json());
+  }
 }

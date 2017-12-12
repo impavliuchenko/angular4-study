@@ -9,10 +9,20 @@
       Buy
     </button>
     <button
-      class="btn btn-sm btn-default"
-      [disabled] = "!carItem.isSold"
-      (click)="onAction('return')">
-      Return
+    class="btn btn-sm btn-default"
+    [disabled] = "!carItem.isSold"
+    (click)="onAction('return')">
+    Return
+    </button>
+    <button
+      class="btn btn-sm btn-primary"
+      (click)="changeYear(carItem)">
+      Change year to random
+    </button>
+    <button
+      class="btn btn-sm btn-danger"
+      (click)="deleteCar(carItem)">
+      Delete car
     </button>
   </div>
 </div>

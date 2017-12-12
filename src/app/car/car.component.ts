@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
+import {CarsService} from "../services/cars.service";
 
 @Component({
   selector: 'app-car',
@@ -7,7 +8,9 @@ import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from 
 })
 export class CarComponent implements AfterViewInit, OnInit {
 
-  @Input() carItem: {name: string, year: number, isSold: boolean};
+  constructor(private carService: CarsService) { }
+
+  @Input() carItem: Car;
   @ContentChild('carHeading') carHeading: ElementRef;
 
   ngAfterViewInit() {
@@ -27,5 +30,19 @@ export class CarComponent implements AfterViewInit, OnInit {
 
   onAction(type: string) {
     this.carItem.isSold = type === 'buy' ? true : false;
+  }
+
+  randomYear() {
+    return Math.floor(Math.random() * 2017);
+  }
+
+  changeYear(car: Car) {
+    this.carService.changeYear(car, this.randomYear())
+      .subscribe();
+  }
+
+  deleteCar(car: Car) {
+    this.carService.deleteCar(car)
+      .subscribe();
   }
 }
