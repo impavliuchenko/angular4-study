@@ -12,6 +12,7 @@ import {CarsService} from './services/cars.service';
 import { FormComponent } from './form-template-driven/form.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import {HttpModule} from '@angular/http';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {HttpModule} from '@angular/http';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]
