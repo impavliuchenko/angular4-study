@@ -5,8 +5,13 @@
 <hr>
 <input type="text" class="form-control" [(ngModel)] = "searchCar">
 <hr>
-<div class="list-group">
-  <app-car class="list-group-item" *ngFor="let car of cars | carFilter:searchCar:'name'" [carItem] = "car"></app-car>
+<div class="row">
+  <div class="col-xs-12">
+    <app-car class="list-group-item" *ngFor="let car of cars | carFilter:searchCar:'name'" [carItem] = "car"></app-car>
+  </div>
+  <div class="col-xs-8">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <hr>
 <button class="btn btn-primary" (click)="toLogin()">Back to login</button>

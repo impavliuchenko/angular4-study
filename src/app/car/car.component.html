@@ -1,9 +1,13 @@
 <div [ngClass] = "getClass()">
+  <!--<a #carHeading class="list-group-item-heading"-->
+     <!--[routerLink]="['/cars', carItem.id]">-->
+    <!--Name: {{carItem.name}}-->
+  <!--</a>-->
   <a #carHeading class="list-group-item-heading"
-     [routerLink]="['/cars', carItem.id]">
-    Name: {{carItem.name}}
+     (click)="toCar(carItem.id)">
+    Name: {{ carItem.name }}
   </a>
-  <p class="list-group-item-text">Year: {{carItem.year}}</p>
+  <p class="list-group-item-text">Year: {{ carItem.year }}</p>
   <div>
     <button
       class="btn btn-sm btn-primary"

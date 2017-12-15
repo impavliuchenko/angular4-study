@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
 import {CarsService} from '../services/cars.service';
 import {CarsComponent} from '../cars/cars.component';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-car',
@@ -10,7 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CarComponent implements AfterViewInit, OnInit {
 
-  constructor(private carService: CarsService, private cars: CarsComponent, private route: ActivatedRoute) { }
+  constructor(private carService: CarsService, private cars: CarsComponent,
+              private route: ActivatedRoute, private router: Router) { }
 
   @Input() carItem: Car;
   @ContentChild('carHeading') carHeading: ElementRef;
@@ -46,5 +47,9 @@ export class CarComponent implements AfterViewInit, OnInit {
       .subscribe((data) => {
         this.cars.cars = this.cars.cars.filter(c => c.id !== car.id);
       });
+  }
+
+  toCar(id: number) {
+    this.router.navigate(['./cars', id]);
   }
 }

@@ -15,8 +15,8 @@ export class CarPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private carService: CarsService) { }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.params['id']; // not reactive approach
-    // this.route.params.subscribe((params) => this.id = +params['id']); // reactive
+    // this.id = +this.route.snapshot.params['id']; // not reactive approach
+    this.route.params.subscribe((params) => this.id = +params['id']); // reactive
     console.log(this.id);
     this.carService.getCarById(this.id).subscribe((car: Car) => this.car = car);
   }

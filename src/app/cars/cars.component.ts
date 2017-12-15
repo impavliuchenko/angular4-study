@@ -23,6 +23,7 @@ export class CarsComponent implements OnInit {
       (cars: Car[]) => this.cars = cars,
       (error: Response) => alert(error)
       );
+
   }
 
   toLogin() {

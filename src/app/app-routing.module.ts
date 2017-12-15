@@ -6,9 +6,10 @@ import {CarPageComponent} from './cars/car-page/car-page.component';
 
 
 const appRoutes: Routes = [
-  {path: 'cars', component: CarsComponent},
-  {path: '', component: FormReactiveComponent},
-  {path: 'cars/:id', component: CarPageComponent}
+  {path: 'cars', component: CarsComponent, children: [
+    {path: ':id', component: CarPageComponent}
+  ]},
+  {path: '', component: FormReactiveComponent}
 ];
 
 @NgModule({
