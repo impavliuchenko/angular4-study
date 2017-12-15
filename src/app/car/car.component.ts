@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
 import {CarsService} from '../services/cars.service';
 import {CarsComponent} from '../cars/cars.component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-car',
@@ -9,17 +10,15 @@ import {CarsComponent} from '../cars/cars.component';
 })
 export class CarComponent implements AfterViewInit, OnInit {
 
-  constructor(private carService: CarsService, private cars: CarsComponent) { }
+  constructor(private carService: CarsService, private cars: CarsComponent, private route: ActivatedRoute) { }
 
   @Input() carItem: Car;
   @ContentChild('carHeading') carHeading: ElementRef;
+  id: number;
 
-  ngAfterViewInit() {
-    console.log(this.carHeading);
-  }
+  ngAfterViewInit() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   getClass() {
     return {

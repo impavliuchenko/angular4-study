@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { CarComponent } from './car/car.component';
 import { AddCarComponent } from './add-car/add-car.component';
-import {BackgroundDirective} from './directives/background.directive';
+import { BackgroundDirective } from './directives/background.directive';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
-import {CarsService} from './services/cars.service';
+import { CarsService } from './services/cars.service';
 import { FormComponent } from './form-template-driven/form.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
-import {HttpModule} from '@angular/http';
-import {AppRoutingModule} from './app-routing.module';
+import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+import { CarPageComponent } from './cars/car-page/car-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {AppRoutingModule} from './app-routing.module';
     BackgroundDirective,
     CarFilterPipe,
     FormComponent,
-    FormReactiveComponent
+    FormReactiveComponent,
+    CarPageComponent
   ],
   imports: [
     BrowserModule,

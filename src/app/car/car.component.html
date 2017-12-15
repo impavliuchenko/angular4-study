@@ -1,5 +1,8 @@
 <div [ngClass] = "getClass()">
-  <h4 #carHeading class="list-group-item-heading">Name: {{carItem.name}}</h4>
+  <a #carHeading class="list-group-item-heading"
+     [routerLink]="['/cars', carItem.id]">
+    Name: {{carItem.name}}
+  </a>
   <p class="list-group-item-text">Year: {{carItem.year}}</p>
   <div>
     <button
