@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {CarsService} from '../../services/cars.service';
+import {CarsService} from '../../shared/services/cars.service';
 
 @Component({
   selector: 'app-car-page',

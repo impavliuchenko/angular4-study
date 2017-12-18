@@ -4,7 +4,7 @@ import {CarsComponent} from './cars/cars.component';
 import {FormReactiveComponent} from './form-reactive/form-reactive.component';
 import {CarPageComponent} from './cars/car-page/car-page.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {AuthGuardService} from './services/auth-guard.service';
+import {AuthGuardService} from './shared/services/auth-guard.service';
 
 
 const appRoutes: Routes = [

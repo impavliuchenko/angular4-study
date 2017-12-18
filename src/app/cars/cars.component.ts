@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CarsService} from '../services/cars.service';
+import {CarsService} from '../shared/services/cars.service';
 import {Observer} from "rxjs/Observer";
 import {Observable} from "rxjs/Observable";
 import {ActivatedRoute, Router} from "@angular/router";

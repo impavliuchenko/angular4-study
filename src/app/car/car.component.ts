@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
-import {CarsService} from '../services/cars.service';
+import {CarsService} from '../shared/services/cars.service';
 import {CarsComponent} from '../cars/cars.component';
 import {ActivatedRoute, Router} from '@angular/router';
 
