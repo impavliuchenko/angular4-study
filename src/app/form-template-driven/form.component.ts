@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-form',
@@ -20,7 +21,7 @@ export class FormComponent implements OnInit {
     text: 'No'
   }];
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,8 @@ export class FormComponent implements OnInit {
   submitForm() {
     this.isSubmited = true;
     this.formData = this.form.value;
+    this.auth.logIn();
+    console.log(this.auth.isLoggedIn);
   }
 
   putRandomEmail() {

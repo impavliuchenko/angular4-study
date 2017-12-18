@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
@@ -14,6 +14,9 @@ import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CarPageComponent } from './cars/car-page/car-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { CarPageComponent } from './cars/car-page/car-page.component';
     CarFilterPipe,
     FormComponent,
     FormReactiveComponent,
-    CarPageComponent
+    CarPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ import { CarPageComponent } from './cars/car-page/car-page.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [CarsService],
+  providers: [CarsService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

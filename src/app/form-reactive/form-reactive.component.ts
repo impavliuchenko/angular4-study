@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-form-reactive',
@@ -19,7 +20,7 @@ export class FormReactiveComponent implements OnInit {
   form: FormGroup;
   charsCount = 4;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -32,6 +33,8 @@ export class FormReactiveComponent implements OnInit {
 
   onSubmit() {
     console.log('Submited!', this.form);
+    this.auth.logIn();
+    console.log(this.auth.isLoggedIn);
   }
 
   checkForLength(control: FormControl) {
