@@ -1,6 +1,6 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {CarsService} from '../shared/services/cars.service';
-import {CarsComponent} from "../cars/cars.component";
+import {CarsService} from '../../shared/services/cars.service';
+import {CarsComponent} from '../cars.component';
 
 @Component({
   selector: 'app-add-car',
