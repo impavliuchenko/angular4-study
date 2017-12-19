@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
-import { CarsModule } from './cars/cars.module';
 import {SharedModule} from './shared/shared.module';
 
 @NgModule({
@@ -26,7 +25,6 @@ import {SharedModule} from './shared/shared.module';
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    CarsModule,
     SharedModule
   ],
   providers: [AuthService, AuthGuardService],

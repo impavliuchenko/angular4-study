@@ -6,7 +6,7 @@ import {CarPageComponent} from './car-page/car-page.component';
 
 
 const carsRoutes: Routes = [
-  {path: 'cars', component: CarsComponent, canActivate: [AuthGuardService] , children: [
+  {path: '', component: CarsComponent, children: [
       {path: ':id', component: CarPageComponent}
     ]}
 ];
